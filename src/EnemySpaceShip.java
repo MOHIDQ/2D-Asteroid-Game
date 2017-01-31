@@ -6,24 +6,24 @@ import java.awt.image.BufferedImage;
 //follow of player spaceship and bounds
 
 public class EnemySpaceShip {
-	private int x;
-	private int y;
-	private int xSpeed;
-	private int ySpeed;
+	private double x;
+	private double y;
+	private double xSpeed;
+	private double ySpeed;
 	private int health;
 	private MainGame game;
 	private Boolean isAlive;
 	private BufferedImage enemyImage;
 	private SpriteSheet spritesheet;
 
-	public EnemySpaceShip(int x, int y, int health, Boolean isAlive,
+	public EnemySpaceShip(double x, double y, int health, Boolean isAlive,
 			MainGame game) {
 		this.x = x;
 		this.y = y;
 		this.health = health;
 		this.game = game;
-		xSpeed = 1;
-		ySpeed = 1;
+		xSpeed = 0.3;
+		ySpeed = 0.3;
 		this.isAlive = isAlive;
 		spritesheet = new SpriteSheet(game.spriteSheet);
 		enemyImage = spritesheet.getImage(8, 1, 32, 32);
@@ -32,7 +32,7 @@ public class EnemySpaceShip {
 	// draws enemy space ship image if alive
 	public void render(Graphics g) {
 		if (isAlive)
-			g.drawImage(enemyImage, x, y, null);
+			g.drawImage(enemyImage, (int)x, (int)y, null);
 	}
 
 	// method that gets direction of spaceship and moves towards it, given
@@ -101,11 +101,11 @@ public class EnemySpaceShip {
 		this.y = y;
 	}
 
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 	

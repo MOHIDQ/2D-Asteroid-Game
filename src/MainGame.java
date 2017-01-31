@@ -130,9 +130,6 @@ public class MainGame extends Canvas implements Runnable {
 					counter++;
 					averageSpeedSS = 3; // sets back default speed of spaceship
 										// after time interval
-					// sets enemy space ship speeds back to default
-					enemySpaceShip.setxSpeed(1);
-					enemySpaceShip.setySpeed(1);
 					// gets random position for asteroid to spawn in
 					int randomX = random.nextInt(600);
 					int randomY = random.nextInt(415);
@@ -465,7 +462,7 @@ public class MainGame extends Canvas implements Runnable {
 		for (PowerUp powerup : powerupList) {
 			p = new Rectangle(powerup.getX(), powerup.getY(), 25, 25);
 			s = new Rectangle(spaceship.getX(), spaceship.getY(), 30, 30);
-			es = new Rectangle(enemySpaceShip.getX(), enemySpaceShip.getY(),30, 30);
+			es = new Rectangle((int)enemySpaceShip.getX(), (int)enemySpaceShip.getY(),30, 30);
 			// if intersects add health to player spaceship
 			if (p.intersects(s)) {
 				// checks what type of power up was dropepd by the asteroid
